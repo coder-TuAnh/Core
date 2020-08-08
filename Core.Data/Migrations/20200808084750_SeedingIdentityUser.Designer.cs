@@ -4,14 +4,16 @@ using Core.Data.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Core.Data.Migrations
 {
     [DbContext(typeof(CoreDBContext))]
-    partial class CoreDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200808084750_SeedingIdentityUser")]
+    partial class SeedingIdentityUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
