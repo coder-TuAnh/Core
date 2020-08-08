@@ -1,5 +1,6 @@
 ﻿using Core.Data.Configurations;
 using Core.Data.Entites;
+using Core.Data.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Core.Data.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //configure using fluent API
             modelBuilder.ApplyConfiguration(new CartConfiguration());
             modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
@@ -30,6 +32,8 @@ namespace Core.Data.EF
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
             //base.OnModelCreating(modelBuilder);
+            modelBuilder.Seed();
+         
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
